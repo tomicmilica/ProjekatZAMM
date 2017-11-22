@@ -48,6 +48,7 @@
     <Compile Include="AuditEvents.cs" />
     <Compile Include="AuthorizationManager.cs" />
     <Compile Include="AuthorizationPolicy.cs" />
+    <Compile Include="CommonProcess.cs" />
     <Compile Include="CustomPrincipal.cs" />
     <Compile Include="DESData.cs" />
     <Compile Include="IService.cs" />

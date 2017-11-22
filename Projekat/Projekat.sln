@@ -11,12 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManager", "Certi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceContract", "ServiceContract\ServiceContract.csproj", "{B22EFD3A-8E51-4BBD-B151-EA9A6971CAE9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesAlgorithm", "DesAlgorithm", "{7347FBFE-AA0D-40C5-83BB-C4F15D0655D2}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\projekat1\projekat1\CommonProcess.cs = ..\..\projekat1\projekat1\CommonProcess.cs
-		..\..\projekat1\projekat1\DESData.cs = ..\..\projekat1\projekat1\DESData.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
