@@ -241,6 +241,40 @@ namespace pokusaj
         }
         #endregion
 
+        public string SetLeftHalvesKey(string text)
+        {
+            return this.SetHalvesKey(true, text);
+        }
+
+        public string SetRightHalvesKey(string text)
+        {
+            return this.SetHalvesKey(false, text);
+        }
+
+        public string SetHalvesKey(bool IsLeft, string text)
+        {
+            if ((text.Length % 8) != 0)
+            {
+                Console.WriteLine("The key is not multiple of 8bit.");
+                return null;
+            }
+
+            int midindex = (text.Length / 2) - 1;
+
+            string result = "";
+
+            if (IsLeft)
+            {
+                result = text.Substring(0, midindex + 1);
+            }
+            else
+            {
+                result = text.Substring(midindex + 1);
+            }
+
+            return result;
+        }
+#endregion
 
 
     }
