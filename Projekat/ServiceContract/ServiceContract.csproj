@@ -49,6 +49,7 @@
     <Compile Include="AuthorizationManager.cs" />
     <Compile Include="AuthorizationPolicy.cs" />
     <Compile Include="CustomPrincipal.cs" />
+    <Compile Include="DESData.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Messages.Designer.cs">
       <AutoGen>True</AutoGen>
