@@ -126,6 +126,9 @@
   <data name="Mssg2" xml:space="preserve">
     <value>Authentication successful</value>
   </data>
+  <data name="Mssg3" xml:space="preserve">
+    <value>Error!</value>
+  </data>
   <data name="ReadReplication" xml:space="preserve">
     <value>Secondary replicator receives replication</value>
   </data>

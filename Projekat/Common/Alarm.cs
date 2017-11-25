@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceContract
+namespace Common
 {
     [DataContract]
     public class Alarm
@@ -82,4 +82,4 @@ namespace ServiceContract
             return random;
         }
     }
-}
+    }

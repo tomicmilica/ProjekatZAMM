@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceContract
+namespace Common
 {
     public class Audit
     {
         private static EventLog customLog = null;
         const string SourceName = "Common.Audit";
-        const string LogName = "ReplicatorLog";
+        const string LogName = "LogName";
 
-        public Audit()
+        static Audit()
         {
             try
             {
@@ -21,7 +21,6 @@ namespace ServiceContract
                 {
                     EventLog.CreateEventSource(SourceName, LogName);
                 }
-
                 customLog = new EventLog(LogName, Environment.MachineName, SourceName);
             }
             catch (Exception e)
@@ -49,16 +48,30 @@ namespace ServiceContract
             return message;
         }
 
-        public static string InitReplication()
+        public static void InitReplication()
         {
             string message = String.Format(AuditEvents.InitReplication);
-            return message;
+            if (customLog != null)
+            {
+                customLog.WriteEntry(message);
+            }
+            else
+            {
+                throw new ArgumentException(string.Format("Error while trying to write event to event log."));
+            }
         }
 
-        public static string ReadReplication()
+        public static void ReadReplication()
         {
             string message = String.Format(AuditEvents.ReadReplication);
-            return message;
+            if (customLog != null)
+            {
+                customLog.WriteEntry(message);
+            }
+            else
+            {
+                throw new ArgumentException(string.Format("Error while trying to write event to event log."));
+            }
         }
     }
 }

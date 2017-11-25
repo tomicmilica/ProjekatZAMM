@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -52,8 +53,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{48FCFB46-0793-42B8-A7E2-3874FE27C6FD}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceContract\ServiceContract.csproj">
-      <Project>{b22efd3a-8e51-4bbd-b151-ea9a6971cae9}</Project>
+      <Project>{B30C5E59-3D3F-4420-B50E-194B50B440B7}</Project>
       <Name>ServiceContract</Name>
     </ProjectReference>
   </ItemGroup>

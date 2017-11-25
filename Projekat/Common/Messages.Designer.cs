@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServiceContract {
+namespace Common {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ServiceContract {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ServiceContract.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Common.Messages", typeof(Messages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,42 +57,6 @@ namespace ServiceContract {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Primary replicator initializes replication.
-        /// </summary>
-        internal static string InitReplication {
-            get {
-                return ResourceManager.GetString("InitReplication", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User {0}  is not in group.
-        /// </summary>
-        internal static string Mssg1 {
-            get {
-                return ResourceManager.GetString("Mssg1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Authentication successful.
-        /// </summary>
-        internal static string Mssg2 {
-            get {
-                return ResourceManager.GetString("Mssg2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Secondary replicator receives replication.
-        /// </summary>
-        internal static string ReadReplication {
-            get {
-                return ResourceManager.GetString("ReadReplication", resourceCulture);
             }
         }
     }

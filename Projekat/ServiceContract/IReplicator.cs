@@ -1,4 +1,5 @@
-﻿using Common;
+﻿
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 namespace ServiceContract
 {
     [ServiceContract]
-    public interface IService
+    public interface IReplicator
     {
         [OperationContract]
-        void SendAlarm(Alarm alarm);
+        void SendToReplicatorServer(Alarm alarm);
     }
 }

@@ -6,7 +6,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceContract
+namespace Common
 {
     public enum AuditEventTypes
     {
