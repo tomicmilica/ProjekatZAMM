@@ -1,9 +1,12 @@
-﻿using ServiceContract;
+﻿
+using Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Principal;
 using System.ServiceModel;
+using System.ServiceModel.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +20,14 @@ namespace Client
             binding.Security.Mode = SecurityMode.Transport;
             binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
 
-            string address = "net.tcp://localhost:2800/ServerPrimary";
+            ClientSection clientSection = (ClientSection)ConfigurationManager.GetSection("system.serviceModel/client");
+            ChannelEndpointElement endpoint = clientSection.Endpoints[0];
+            string address = string.Format(endpoint.Address.ToString());
 
-            using (ClientProxy proxy = new ClientProxy(binding, address))
+            EndpointAddress endpointAddress = new EndpointAddress(new Uri(address), EndpointIdentity.CreateUpnIdentity("Server1@Zorka-PC"));
+            Console.WriteLine("Adress: ", address);
+
+            using (ClientProxy proxy = new ClientProxy(binding, endpointAddress))
             {
                 string Client = WindowsIdentity.GetCurrent().Name.ToString();
 
@@ -57,7 +65,6 @@ namespace Client
             }
 
             Console.ReadLine();
-
         }
     }
 }

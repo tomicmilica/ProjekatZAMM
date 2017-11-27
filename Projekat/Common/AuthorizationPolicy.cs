@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Claims;
 using System.IdentityModel.Policy;
@@ -7,7 +8,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceContract
+namespace Common
 {
     public class AuthorizationPolicy : IAuthorizationPolicy
     {
@@ -67,4 +68,4 @@ namespace ServiceContract
             }
         }
     }
-    }
+}

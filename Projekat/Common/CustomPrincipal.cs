@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceContract
+namespace Common
 {
-    public class CustomPrincipal : IPrincipal, IDisposable
+   public class CustomPrincipal : IPrincipal, IDisposable
     {
 
         private WindowsIdentity identity = null;
@@ -35,7 +36,7 @@ namespace ServiceContract
                     IsAuthz = true;
                 }
             }
-
+           
             return IsAuthz;
         }
 

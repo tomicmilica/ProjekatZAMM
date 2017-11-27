@@ -1,4 +1,5 @@
-﻿using ServiceContract;
+﻿using Common;
+using ServiceContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Client
     {
         IService factory;
 
-        public ClientProxy(NetTcpBinding binding, string address) : base(binding, address)
+        public ClientProxy(NetTcpBinding binding, EndpointAddress address) : base(binding, address)
         {
             factory = this.CreateChannel();
         }
