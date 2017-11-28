@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DESAlgorithm
 {
-   abstract class CommonProcess
+   public abstract class CommonProcess
     {
         public abstract string EncryptionStart(string text, string key, bool IsTextBinary);
 

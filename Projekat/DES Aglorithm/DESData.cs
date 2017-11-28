@@ -96,7 +96,7 @@ namespace DESAlgorithm
 #endregion
 
     #region Class for store keys
-    class Keys
+    public class Keys
     {
         public string[] Cn = new string[17];
         public string[] Dn = new string[17];
