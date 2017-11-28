@@ -12,39 +12,44 @@ using System.Threading.Tasks;
 namespace Servers
 {
     public class ServerPrimary : IService
-    { 
+    {
+        public object locker = new object();
+
         public void SendAlarm(Alarm alarm)
         {
-            
-            CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
-
-            try
+            lock (locker)
             {
-                if (principal.IsInRole("AlarmGenerators"))
+
+                CustomPrincipal principal = Thread.CurrentPrincipal as CustomPrincipal;
+
+                try
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("Received from client:");
-                    Console.WriteLine("Time {0}", alarm.TimeStamp);
-                    Console.WriteLine("Client {0}", alarm.Client);
-                    Console.WriteLine("Message {0}", alarm.Message);
-                    Console.WriteLine("Risk {0}", alarm.Risk);
-
-                    string pathWrite = "../../databaseOfPrimary.txt";
-                    FileStream fs = new FileStream(pathWrite, FileMode.Append, FileAccess.Write);
-
-                    using (StreamWriter outputFile = new StreamWriter(fs))
+                    if (principal.IsInRole("AlarmGenerators"))
                     {
-                        outputFile.WriteLine(alarm.TimeStamp + "|" + alarm.Client + "|" + alarm.Message + "|" + alarm.Risk);
+                        Console.WriteLine();
+                        Console.WriteLine("Received from client:");
+                        Console.WriteLine("Time {0}", alarm.TimeStamp);
+                        Console.WriteLine("Client {0}", alarm.Client);
+                        Console.WriteLine("Message {0}", alarm.Message);
+                        Console.WriteLine("Risk {0}", alarm.Risk);
+
+                        string pathWrite = "../../databaseOfPrimary.txt";
+                        FileStream fs = new FileStream(pathWrite, FileMode.Append, FileAccess.Write);
+
+                        using (StreamWriter outputFile = new StreamWriter(fs))
+                        {
+                            outputFile.WriteLine(alarm.TimeStamp + "|" + alarm.Client + "|" + alarm.Message + "|" + alarm.Risk);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You can't send message to server!");
                     }
                 }
-                else
+                catch (Exception e)
                 {
-                    Console.WriteLine("You can't send message to server!");
+                    Console.WriteLine("Esception in service: " + e.Message);
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Esception in service: "  + e.Message);
             }
         }
     }
