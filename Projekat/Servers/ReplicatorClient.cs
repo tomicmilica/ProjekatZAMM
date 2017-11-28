@@ -13,6 +13,7 @@ using Common;
 using System.ServiceModel.Configuration;
 using System.ServiceModel.Security;
 using CertificateManager;
+using DESAlgorithm;
 
 namespace Servers
 {
@@ -47,8 +48,8 @@ namespace Servers
             X509Certificate2 srvCert = CertificateManagerClass.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, "wcfservice"); //.cer 
             EndpointAddress endpointAddress = new EndpointAddress(new Uri(address), new X509CertificateEndpointIdentity(srvCert));
 
-            //ProcessDES pr = new ProcessDES();
-           // string forEncrypt = pr.EncryptionStart(alarm.Message, "KljucZaE", false);
+            ProcessDES pr = new ProcessDES();
+            string forEncrypt = pr.EncryptionStart(alarm.Message, "KljucZaE", false);
     
             //alarm.Message = forEncrypt;
 

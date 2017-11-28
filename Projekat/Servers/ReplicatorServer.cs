@@ -1,5 +1,6 @@
 ﻿
 using Common;
+using DESAlgorithm;
 using ServiceContract;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,10 @@ namespace Servers
            
             try
             {
-              //  ProcessDES pr = new ProcessDES();
+                ProcessDES pr = new ProcessDES();
 
-               // string forEncrypt = pr.DecryptionStart(alarm.Message, "KljucZaE", true);
-                //alarm.Message = pr.FromBinaryToText(forEncrypt);
+                string forEncrypt = pr.DecryptionStart(alarm.Message, "KljucZaE", true);
+                alarm.Message = pr.FromBinaryToText(forEncrypt);
 
                 Console.WriteLine("********************************");
                 Console.WriteLine("Received from Replicator Client:");
